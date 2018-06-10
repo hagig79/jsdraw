@@ -3,6 +3,25 @@ $(function () {
     var elem = null;
     var offset_inner_x = 0;
     var offset_inner_y = 0;
+    const UNIT_SIZE = 800 / 24;
+    for (let i = 0; i < 24; i++) {
+        let line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute("stroke", "lightgray");
+        line.setAttribute('x1', i * UNIT_SIZE);
+        line.setAttribute('x2', i * UNIT_SIZE);
+        line.setAttribute('y1', 0);
+        line.setAttribute('y2', 600);
+        $('#main-svg').append(line);
+    }
+    for (let i = 0; i < 24; i++) {
+        let line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute("stroke", "lightgray");
+        line.setAttribute('x1', 0);
+        line.setAttribute('y1', i * UNIT_SIZE);
+        line.setAttribute('x2', 800);
+        line.setAttribute('y2', i * UNIT_SIZE);
+        $('#main-svg').append(line);
+    }
 
     $('#btn-add').click(function () {
         var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
